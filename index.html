@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Protegido por Senha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin: 0 auto;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type=password] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #error-message {
+            color: red;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Por favor, insira a senha para acessar o conteúdo:</h2>
+        <input type="password" id="password" placeholder="Senha">
+        <button onclick="checkPassword()">Entrar</button>
+        <p id="error-message" class="hidden">Senha incorreta. Tente novamente.</p>
+        <div id="content" class="hidden">
+           
+            <h3><a href="cartaz.html">Cartaz</a></h3>
+            <p>Aqui está o conteúdo que só pode ser acessado com a senha correta.</p>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            // Verifica se a senha está correta (neste exemplo, a senha é "senha123")
+            if (password === "123") {
+                document.getElementById("content").classList.remove("hidden");
+                document.getElementById("error-message").classList.add("hidden");
+            } else {
+                document.getElementById("content").classList.add("hidden");
+                document.getElementById("error-message").classList.remove("hidden");
+            }
+        }
+    </script>
+</body>
+</html>
